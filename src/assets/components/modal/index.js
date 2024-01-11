@@ -1,13 +1,16 @@
+// Importando módulos e componentes necessários do React Native
 import { View, Text, StyleSheet, TouchableOpacity, Pressable } from "react-native";
 import * as Clipboard from 'expo-clipboard'
 
+// Componente de modal para exibir a senha gerada
 export function ModalPassword({ password, handleClose }){
 
+    // Função para copiar a senha para a área de transferência
     async function handleCopy(){
         await Clipboard.setStringAsync(password)
-        //alert("Senha copiada com sucesso!")
     }
 
+    // Estrutura do componente renderizado
     return(
         <View style={styles.container}>
             <View style={styles.content}>
@@ -35,6 +38,7 @@ export function ModalPassword({ password, handleClose }){
     )
 }
 
+// Estilos CSS do componente ModalPassword
 const styles = StyleSheet.create({
     container:{
         backgroundColor: 'rgba(24, 24, 24, 0.6)',
