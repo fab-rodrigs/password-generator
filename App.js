@@ -1,28 +1,34 @@
+// Importando módulos e componentes necessários do React Native
 import { useState } from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity, Modal } from 'react-native'
 import Slider from '@react-native-community/slider'
 import { ModalPassword } from './src/assets/components/modal'
 
+// Definindo um conjunto de caracteres para gerar senhas
 let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&"
 
+// Componente principal do aplicativo
 export default function App(){
+  // Definindo estados usando o hook useState
   const [size, setSize] = useState(10)
   const [passwordValue, setPasswordValue] = useState("")
   const [modalVisible, setModalVisible] = useState(false)
 
+  // Função para gerar uma senha aleatória
   function generatePassword(){
-    
     let password = "";
 
+    // Loop para gerar a senha com base no conjunto de caracteres
     for(let i = 0, n = charset.length; i < size; i++){
       password += charset.charAt(Math.floor(Math.random() * n))
     }
 
+    // Atualizando o estado da senha e exibindo o modal
     setPasswordValue(password)
     setModalVisible(true)
-
   }
 
+  // Estrutura do componente renderizado
   return(
     <View style={styles.container}>
        <Image
@@ -59,6 +65,7 @@ export default function App(){
   )
 }
 
+// Estilos CSS do componente
 const styles = StyleSheet.create({
   container:{
     flex: 1,
